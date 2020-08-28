@@ -1,11 +1,11 @@
 {
   "name": "ob",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "package:win64": "electron-packager . --overwrite --platform=win32 --arch=x64 --out=out --version-string.ProductName=\"ob\"",
+    "build": "electron-packager . --overwrite --platform=win32 --arch=x64 --out=out --version-string.ProductName=\"ob\"",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
