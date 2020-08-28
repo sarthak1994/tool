@@ -1,10 +1,16 @@
 {
-  "name": "electron-quick-start",
+  "name": "ob",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package:win64": "electron-packager . --overwrite --platform=win32 --arch=x64 --out=out --version-string.ProductName=\"ob\"",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.srs.ob"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -17,6 +23,14 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^10.0.0"
+    "electron": "^10.0.0",
+    "electron-packager": "^15.1.0",
+    "electron-builder": "^22.8.0",
+    "electron-rebuild": "^2.0.1"
+  },
+  "dependencies": {
+    "electron-active-window": "0.0.4",
+    "electron-log": "^1.3.0",
+    "electron-updater": "^4.0.6"
   }
 }

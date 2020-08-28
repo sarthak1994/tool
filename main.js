@@ -1,19 +1,30 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
+const { autoUpdater } = require("electron-updater")
+const log = require("electron-log")
+
+log.transports.file.level = "debug"
+autoUpdater.logger = log
+autoUpdater.checkForUpdatesAndNotify()
 
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    webSecurity: false,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
-    }
+      preload: path.join(__dirname, 'preload.js'),
+      worldSafeExecuteJavaScript: true,
+      nodeIntegration:true
+    },
+
   })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile(path.join(__dirname, '/main/index.html'))
+  mainWindow.webContents.openDevTools()
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -23,6 +34,7 @@ function createWindow () {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
+  app.allowRendererProcessReuse = false;
   createWindow()
   
   app.on('activate', function () {
