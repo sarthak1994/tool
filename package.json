@@ -12,15 +12,11 @@
   "build": {
     "appId": "com.srs.ob"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/sarthak1994/tool",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    
   ],
-  "author": "GitHub",
+  "author": "ob",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^10.0.0",
